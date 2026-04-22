@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>イグジット参謀 | 完成LP</title>
+  <title>イグジット参謀 | 出口から逆算する、社長の経営戦略。</title>
+  <meta name="description" content="イグジット参謀は、スタートアップから年商50億規模のオーナー企業まで対応。IPO、売却、承継、相続、解散。目指す出口によって、作るべき数字は変わります。出口から逆算して、企業価値を最大化する経営を設計します。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
+      --bg-soft: #f7f9fc;
       --text: #10233e;
-      --subtext: #4a5a70;
-      --line: #e7ebf1;
-      --soft: #f7f9fc;
+      --subtext: #526277;
+      --line: #e6ebf1;
       --navy: #10233e;
+      --navy-2: #17344f;
       --green: #163b2d;
       --gold: #b08d57;
-      --shadow: 0 12px 40px rgba(16, 35, 62, 0.08);
+      --gold-soft: rgba(176, 141, 87, 0.08);
+      --shadow: 0 18px 48px rgba(16, 35, 62, 0.08);
+      --radius-xl: 32px;
       --radius-lg: 24px;
-      --radius-md: 16px;
+      --radius-md: 18px;
       --radius-sm: 12px;
       --container: 1180px;
     }
@@ -31,7 +35,7 @@
       font-family: "Noto Sans JP", system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.7;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -43,61 +47,56 @@
       margin: 0 auto;
     }
 
-    .section {
-      padding: 96px 0;
-    }
-
-    .section-sm {
-      padding: 72px 0;
-    }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 72px 0; }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 8px 14px;
-      border: 1px solid rgba(176, 141, 87, 0.25);
+      border: 1px solid rgba(176, 141, 87, 0.24);
       border-radius: 999px;
+      background: var(--gold-soft);
       color: var(--gold);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.04em;
-      background: rgba(176, 141, 87, 0.06);
     }
 
     .section-head {
-      max-width: 760px;
-      margin-bottom: 40px;
+      max-width: 800px;
+      margin-bottom: 42px;
     }
 
     .section-head h2 {
       margin: 16px 0 12px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.25;
-      letter-spacing: -0.02em;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
     }
 
     .section-head p {
       margin: 0;
-      color: var(--subtext);
       font-size: 17px;
+      color: var(--subtext);
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(10px);
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(16, 35, 62, 0.06);
     }
 
     .nav {
-      height: 80px;
+      min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
@@ -112,8 +111,8 @@
     }
 
     .brand span {
-      color: var(--subtext);
       font-size: 12px;
+      color: var(--subtext);
     }
 
     .nav-links {
@@ -128,25 +127,26 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 52px;
+      min-height: 54px;
       padding: 0 24px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.25s ease;
       border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
-      background: var(--green);
       color: #fff;
+      background: linear-gradient(135deg, var(--green), #1d4a38);
       box-shadow: var(--shadow);
     }
 
@@ -156,9 +156,9 @@
     }
 
     .btn-secondary {
+      color: var(--navy);
       background: #fff;
       border-color: var(--line);
-      color: var(--navy);
     }
 
     .btn-secondary:hover {
@@ -168,51 +168,52 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 72px 0 90px;
+      padding: 76px 0 94px;
       background:
-        radial-gradient(circle at top right, rgba(176, 141, 87, 0.10), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(176, 141, 87, 0.14), transparent 24%),
         linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 42px;
       align-items: center;
     }
 
     .hero-copy h1 {
-      margin: 20px 0 18px;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
+      margin: 18px 0 18px;
+      font-size: clamp(42px, 6vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
     }
 
-    .hero-copy p {
+    .hero-copy .lead {
       margin: 0;
       font-size: 18px;
       color: var(--subtext);
       max-width: 640px;
     }
 
-    .hero-copy p strong {
+    .hero-copy .lead strong {
       color: var(--navy);
     }
 
     .hero-points {
-      margin-top: 28px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 28px;
     }
 
     .hero-points span {
       padding: 10px 14px;
+      border: 1px solid var(--line);
       border-radius: 999px;
       background: #fff;
-      border: 1px solid var(--line);
-      font-size: 13px;
       color: var(--subtext);
+      font-size: 13px;
+      font-weight: 500;
     }
 
     .hero-visual {
@@ -221,9 +222,9 @@
 
     .visual-card {
       position: relative;
-      min-height: 560px;
-      border-radius: 32px;
+      min-height: 600px;
       overflow: hidden;
+      border-radius: 34px;
       background:
         linear-gradient(135deg, rgba(16,35,62,0.92), rgba(22,59,45,0.86)),
         url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80') center/cover;
@@ -233,7 +234,7 @@
     .visual-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(16,35,62,0.15), rgba(16,35,62,0.72));
+      background: linear-gradient(180deg, rgba(16,35,62,0.14), rgba(16,35,62,0.76));
     }
 
     .visual-content {
@@ -247,25 +248,27 @@
     }
 
     .floating-box {
-      padding: 18px 18px;
+      padding: 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(8px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .floating-box small {
-      color: var(--gold);
-      font-weight: 700;
       display: block;
       margin-bottom: 6px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
     }
 
     .floating-box strong {
       display: block;
+      margin-bottom: 6px;
       font-size: 18px;
       line-height: 1.4;
-      margin-bottom: 6px;
     }
 
     .floating-box span {
@@ -273,11 +276,32 @@
       font-size: 14px;
     }
 
-    .grid-2, .grid-3, .grid-4 {
+    .stats-row {
       display: grid;
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
     }
 
+    .stat-card {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .stat-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    .stat-card span {
+      color: var(--subtext);
+      font-size: 14px;
+    }
+
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 20px; }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -285,9 +309,9 @@
     .card {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: var(--radius-md);
+      border-radius: 20px;
       padding: 28px;
-      box-shadow: 0 4px 20px rgba(16,35,62,0.04);
+      box-shadow: 0 6px 20px rgba(16, 35, 62, 0.04);
     }
 
     .card h3 {
@@ -298,36 +322,34 @@
 
     .card p,
     .card li {
-      color: var(--subtext);
       margin: 0;
+      color: var(--subtext);
       font-size: 15px;
     }
 
     .pain-card {
-      min-height: 150px;
+      min-height: 164px;
     }
 
     .pain-card .num {
+      margin-bottom: 10px;
+      color: var(--gold);
       font-size: 13px;
       font-weight: 800;
-      color: var(--gold);
       letter-spacing: 0.08em;
-      margin-bottom: 10px;
     }
 
     .highlight-wrap {
-      border-radius: 28px;
-      background: linear-gradient(135deg, #10233e 0%, #17344f 100%);
-      color: #fff;
       padding: 48px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: #fff;
       box-shadow: var(--shadow);
     }
 
     .highlight-wrap h2,
     .highlight-wrap p,
-    .highlight-wrap li {
-      color: #fff;
-    }
+    .highlight-wrap li { color: #fff; }
 
     .comparison {
       overflow: hidden;
@@ -352,9 +374,9 @@
     }
 
     .comparison th {
-      background: var(--soft);
-      font-size: 14px;
+      background: var(--bg-soft);
       color: var(--navy);
+      font-size: 14px;
       font-weight: 800;
     }
 
@@ -373,32 +395,31 @@
     }
 
     .step {
-      position: relative;
       padding: 28px;
-      border-radius: 20px;
       border: 1px solid var(--line);
+      border-radius: 20px;
       background: #fff;
     }
 
-    .step .step-no {
+    .step-no {
       width: 44px;
       height: 44px;
-      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 16px;
+      border-radius: 50%;
       background: rgba(176,141,87,0.12);
       color: var(--gold);
       font-weight: 800;
-      margin-bottom: 16px;
     }
 
     .list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
       display: grid;
       gap: 10px;
-      margin: 14px 0 0;
-      padding: 0;
-      list-style: none;
     }
 
     .list li::before {
@@ -413,16 +434,16 @@
 
     .target-wrap {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.08fr 0.92fr;
       gap: 24px;
       align-items: stretch;
     }
 
     .target-box {
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: #fff;
       padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
     }
 
     .target-box ul {
@@ -436,7 +457,7 @@
     .target-box li {
       padding: 12px 14px;
       border-radius: 14px;
-      background: var(--soft);
+      background: var(--bg-soft);
       color: var(--subtext);
     }
 
@@ -446,29 +467,49 @@
       gap: 18px;
     }
 
-    .flow .card {
-      position: relative;
-      min-height: 210px;
-    }
+    .flow .card { min-height: 220px; }
 
     .flow .card span {
       display: inline-block;
       margin-bottom: 14px;
+      color: var(--gold);
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.08em;
-      color: var(--gold);
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 15px;
     }
 
     .cta-box {
       position: relative;
       overflow: hidden;
-      border-radius: 32px;
-      padding: 58px 48px;
-      background:
-        radial-gradient(circle at top right, rgba(176,141,87,0.12), transparent 22%),
-        linear-gradient(135deg, #f7f9fc, #ffffff);
+      padding: 60px 48px;
       border: 1px solid var(--line);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at top right, rgba(176,141,87,0.12), transparent 24%),
+        linear-gradient(135deg, #f7f9fc, #ffffff);
       text-align: center;
       box-shadow: var(--shadow);
     }
@@ -476,7 +517,7 @@
     .cta-box h2 {
       margin: 16px 0 12px;
       font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.25;
+      line-height: 1.22;
     }
 
     .cta-box p {
@@ -486,32 +527,36 @@
       font-size: 17px;
     }
 
+    .contact-note {
+      margin-top: 18px;
+      color: var(--subtext);
+      font-size: 13px;
+    }
+
     footer {
-      border-top: 1px solid var(--line);
       padding: 28px 0 48px;
+      border-top: 1px solid var(--line);
       color: var(--subtext);
       font-size: 14px;
     }
 
     @media (max-width: 1080px) {
       .hero-grid,
-      .target-wrap,
       .grid-4,
       .grid-3,
+      .step-row,
       .flow,
-      .step-row {
+      .target-wrap,
+      .stats-row {
         grid-template-columns: 1fr 1fr;
       }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
+      .grid-2 { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
       .section { padding: 72px 0; }
       .section-sm { padding: 56px 0; }
-      .nav { height: auto; padding: 18px 0; align-items: flex-start; }
+      .nav { min-height: auto; padding: 18px 0; align-items: flex-start; }
       .nav-links { display: none; }
       .hero { padding: 40px 0 70px; }
       .hero-grid,
@@ -519,18 +564,20 @@
       .grid-3,
       .grid-2,
       .step-row,
+      .flow,
       .target-wrap,
-      .flow {
+      .stats-row {
         grid-template-columns: 1fr;
       }
-      .visual-card { min-height: 440px; }
+      .visual-card { min-height: 460px; }
       .highlight-wrap,
-      .cta-box,
       .target-box,
       .card,
-      .step { padding: 24px; }
+      .step,
+      .cta-box,
+      .faq-item { padding: 24px; }
       .comparison { overflow-x: auto; }
-      .comparison table { min-width: 720px; }
+      .comparison table { min-width: 760px; }
       .btn { width: 100%; }
     }
   </style>
@@ -547,7 +594,7 @@
         <a href="#difference">違い</a>
         <a href="#design">数字設計</a>
         <a href="#service">支援内容</a>
-        <a href="#flow">相談の流れ</a>
+        <a href="#target">対象企業</a>
         <a href="#contact" class="btn btn-primary" style="min-height: 44px; padding: 0 18px;">無料相談する</a>
       </nav>
     </div>
@@ -558,18 +605,35 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">企業価値向上 × EXIT戦略設計</span>
-          <h1>会社をどう終えるか。<br>その前に、価値をどう高めるか。</h1>
-          <p>
-            売却、IPO、承継、相続、解散。<br><strong>目指す出口によって、評価される数字は変わります。</strong><br>だからイグジット参謀は、ただ企業価値を上げるのではなく、<strong>どの出口なら最も報われるのかを見極め、その出口に向けた経営と数字の作り方を設計します。</strong>
+          <h1>出口から逆算する、<br>社長の経営戦略。</h1>
+          <p class="lead">
+            IPO、売却、承継、相続、解散。<br>
+            <strong>目指す出口によって、作るべき数字は変わります。</strong><br>
+            だからイグジット参謀は、ただ企業価値を上げるのではなく、
+            <strong>どの出口なら最も報われるのかを見極め、その出口に向けた経営と数字の作り方を設計します。</strong>
           </p>
           <div class="btn-row">
             <a href="#contact" class="btn btn-primary">無料で出口戦略を相談する</a>
             <a href="#service" class="btn btn-secondary">支援内容を見る</a>
           </div>
           <div class="hero-points">
-            <span>オーナー社長向け</span>
-            <span>売却ありきではない</span>
-            <span>出口別の数字設計に対応</span>
+            <span>スタートアップ対応</span>
+            <span>年商50億規模まで対応</span>
+            <span>IPO・M&amp;A・承継対応</span>
+          </div>
+          <div class="stats-row">
+            <div class="stat-card">
+              <strong>出口から逆算</strong>
+              <span>どの未来を目指すかで、数字設計を変える</span>
+            </div>
+            <div class="stat-card">
+              <strong>売却ありきではない</strong>
+              <span>IPO、承継、相続、解散まで整理可能</span>
+            </div>
+            <div class="stat-card">
+              <strong>実行まで伴走</strong>
+              <span>戦略だけで終わらず、体制整備まで支援</span>
+            </div>
           </div>
         </div>
         <div class="hero-visual">
@@ -612,15 +676,15 @@
       </div>
     </section>
 
-    <section class="section-sm">
+    <section class="section-sm" id="difference">
       <div class="container">
-        <div class="highlight-wrap" id="difference">
+        <div class="highlight-wrap">
           <span class="eyebrow" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: #e2c28f;">イグジット参謀とは？</span>
           <h2 style="margin:18px 0 16px; font-size: clamp(30px,4vw,46px); line-height:1.25;">イグジット参謀は、<br>社長が最も報われる出口を設計するための参謀です。</h2>
           <p style="max-width: 860px; color: rgba(255,255,255,0.84); font-size:17px;">
             イグジット参謀は、会社をただ売るためのサービスではありません。<br>
-            売却、IPO、承継、相続、解散。
-            どの出口が最も社長にとって納得感があるのかを整理し、その出口に向けて、経営・体制・数字を整えるところまで伴走します。
+            売却、IPO、承継、相続、解散。どの出口が最も社長にとって納得感があるのかを整理し、
+            その出口に向けて、経営・体制・数字を整えるところまで伴走します。
           </p>
         </div>
       </div>
@@ -673,7 +737,7 @@
         </div>
         <p style="margin: 22px 0 0; color: var(--subtext); font-size: 16px;">
           <strong style="color: var(--navy);">売上を伸ばすだけでは、会社価値は最大化しません。</strong>
-          どこへ向かうかで、経営の正解は変わります。
+          どの出口を目指すかで、経営の正解は変わります。
         </p>
       </div>
     </section>
@@ -773,18 +837,18 @@
     <section class="section" id="target">
       <div class="container target-wrap">
         <div class="target-box">
-          <span class="eyebrow">対象企業</span>
-          <h2 style="margin: 18px 0 10px; font-size: clamp(30px, 4vw, 44px); line-height:1.25;">こんな社長・会社におすすめです</h2>
+          <span class="eyebrow">対象企業・経営者</span>
+          <h2 style="margin: 18px 0 10px; font-size: clamp(30px, 4vw, 44px); line-height:1.25;">スタートアップ〜オーナー企業におすすめです</h2>
           <ul>
-            <li>年商3億〜50億程度のオーナー企業</li>
-            <li>後継者不在、または承継を検討中</li>
-            <li>売却やIPOを今すぐではないが視野に入れている</li>
-            <li>会社の価値を今のうちに高めたい</li>
-            <li>何を基準に経営を整えればよいか整理したい</li>
-            <li>M&amp;A仲介に行く前に自社側の準備をしたい</li>
+            <li>IPO・資金調達を視野に入れるスタートアップ</li>
+            <li>スタートアップ〜年商50億規模の企業</li>
+            <li>売却やIPOを今すぐではないが視野に入れているオーナー企業</li>
+            <li>会社の価値を今のうちに高めたい成長企業</li>
+            <li>何を基準に経営を整えればよいか整理したい経営者</li>
+            <li>M&amp;A仲介に行く前に自社側の準備をしたい社長</li>
           </ul>
         </div>
-        <div class="target-box" style="background: linear-gradient(135deg, #10233e, #163b2d); color:#fff; border:none; box-shadow: var(--shadow);">
+        <div class="target-box" style="background: linear-gradient(135deg, var(--navy), var(--green)); color:#fff; border:none; box-shadow: var(--shadow);">
           <span class="eyebrow" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.16); color: #e2c28f;">MESSAGE</span>
           <h3 style="margin: 18px 0 14px; font-size: 30px; line-height:1.35;">決める前に相談するから、選択肢が広がります。</h3>
           <p style="color: rgba(255,255,255,0.86); font-size:16px; margin:0;">
@@ -827,11 +891,35 @@
       </div>
     </section>
 
+    <section class="section-sm">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">よくあるご相談</span>
+          <h2>まだ出口を決めていなくても、相談できますか？</h2>
+          <p>はい。むしろ、決める前の整理こそ価値があります。</p>
+        </div>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>IPOと売却で迷っている段階でも大丈夫ですか？</h3>
+            <p>大丈夫です。現状の会社の状態、成長性、体制、資本政策の考え方を整理し、どちらが現実的かを一緒に見極めます。</p>
+          </div>
+          <div class="faq-item">
+            <h3>まだM&amp;A仲介に相談する前ですが、早すぎませんか？</h3>
+            <p>早くありません。むしろ、仲介に行く前に自社側の準備を整えることで、選択肢や交渉力が大きく変わります。</p>
+          </div>
+          <div class="faq-item">
+            <h3>経営改善の伴走までお願いできますか？</h3>
+            <p>できます。出口戦略の整理だけでなく、企業価値向上に必要な数字設計、月次の見える化、体制整備、実行支援まで対応します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact">
       <div class="container">
         <div class="cta-box">
           <span class="eyebrow">FINAL CTA</span>
-          <h2>まだ決めていなくても、今動くことで結果は変わります。</h2>
+          <h2>まだ決めていなくても、<br>今動くことで結果は変わります。</h2>
           <p>
             売却か、IPOか、承継か。<br>
             まずは、御社にとってどの出口が最適か、そしてその出口で最も報われるために何を整えるべきかを整理しませんか。
@@ -840,6 +928,7 @@
             <a href="#" class="btn btn-primary">無料で出口戦略を相談する</a>
             <a href="#service" class="btn btn-secondary">支援内容を確認する</a>
           </div>
+          <div class="contact-note">※ フォーム送信先は GitHub Pages 公開時に Formspree / Googleフォーム / GAS などへ接続してください。</div>
         </div>
       </div>
     </section>
